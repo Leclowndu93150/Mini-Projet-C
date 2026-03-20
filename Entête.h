@@ -16,7 +16,7 @@ struct addresseIPNum {
     int masqueNum;
 }
 
-boolean verification(char ip[]); //renvoi True = si l'addresse à le bon format
+bool verification(char ip[]); //renvoi True = si l'addresse à le bon format
 
 addresseIP extraire(char input[],char format); //renvoie les char sous forme de structure
 

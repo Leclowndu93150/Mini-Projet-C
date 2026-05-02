@@ -1,0 +1,5 @@
+Classe : C
+L'adresse IP est privée.
+Adresse IP : 192.168.1.1/24
+Adresse réseau : 192.168.1.0/24
+Adresse hôte : 0.0.0.1

@@ -90,11 +90,11 @@ int calculeH(struct addresseIPNum ip){
 
 struct addresseIPNum convertions(struct addresseIP ip){
     struct addresseIPNum ipNum;
-    ipNum.unNum = atoi(ip.octets[0]);
-    ipNum.deuxNum = atoi(ip.octets[1]);
-    ipNum.troisNum = atoi(ip.octets[2]);
-    ipNum.quatreNum = atoi(ip.octets[3]);
-    ipNum.masqueNum = atoi(ip.masque);
+    ipNum.unNum = ip.octets[0];
+    ipNum.deuxNum = ip.octets[1];
+    ipNum.troisNum = ip.octets[2];
+    ipNum.quatreNum = ip.octets[3];
+    ipNum.masqueNum = ip.masque;
     return ipNum;
 }
 

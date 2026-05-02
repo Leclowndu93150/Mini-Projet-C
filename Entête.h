@@ -23,6 +23,10 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+
+#ifndef ENTETE_H
+#define ENTETE_H
 
 
 //structure du format de l'addressse source : "xxx.xxx.xxx.xxx/xx"
@@ -57,3 +61,5 @@ int calculeH(struct addresseIPNum ip); //renvoie IP que le "4"
 void affichage(char classe, bool privee, struct addresseIPNum ip, struct addresseIPNum r, int h); //affiche les résultats
 
 void ecritureFichier(char classe, bool privee, struct addresseIPNum ip, struct addresseIPNum r, int h); //écrit les résultats dans un fichier
+
+#endif // ENTETE_H

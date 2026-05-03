@@ -4,3 +4,10 @@ Auteurs :
 PATOUILLARD Arno
 BEN ABDELGHAFAR Abdelkerim
 
+L'application permet d'obtenir les informations d'une adresse IP (xxx.xxx.xxx.xxx/xx) saisie par l'utilisateur.
+Elle verifie plusieurs critères :
+- La syntaxe de l'adresse IP
+- La classe de l'adresse IP
+- Si l'adresse IP est privée ou publique
+
+Ensuite, elle affiche ces informations à l'utilisateur et le enregistre dans un fichier texte.

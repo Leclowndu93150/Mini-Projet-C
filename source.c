@@ -28,32 +28,46 @@
 #include <stdlib.h>
 
 bool verification(char ip[]) {
-    int o1, o2, o3, o4, masque;
-
-    if (sscanf(ip, "%d.%d.%d.%d/%d", &o1, &o2, &o3, &o4, &masque) != 5) {
+    // la taille doit être entre 9 et 18 caractères
+    int len = strlen(ip);
+    if (len < 9 || len > 18) {
         return false;
     }
-
-    if (o1 < 0 || o1 > 255 || o2 < 0 || o2 > 255 || o3 < 0 || o3 > 255 || o4 < 0 || o4 > 255) {
+    // on compte le nombre de points
+    int comptePoint = 0;
+    for (int i = 0; i < len; i++) {
+        if (ip[i] == '.') {
+            comptePoint++;
+        }
+    }
+    if (comptePoint != 3) {
         return false;
     }
-
-    if (masque < 0 || masque > 32) {
+    // on compte le nombre de /
+    int compteSlash = 0;
+    for (int i = 0; i < len; i++) {
+        if (ip[i] == '/') {
+            compteSlash++;
+        }
+    }
+    if (compteSlash != 1) {
         return false;
     }
     return true;
 }
 
 struct addresseIP extraire(char input[]) {
-    struct addresseIP addresse = {{0, 0, 0, 0}, 0};
-    int o1, o2, o3, o4, masque;
+    struct addresseIP addresse;
 
-    if (sscanf(input, "%d.%d.%d.%d/%d", &o1, &o2, &o3, &o4, &masque) == 5) {
-        addresse.octets[0] = (unsigned char)o1;
-        addresse.octets[1] = (unsigned char)o2;
-        addresse.octets[2] = (unsigned char)o3;
-        addresse.octets[3] = (unsigned char)o4;
-        addresse.masque = (unsigned char)masque;
+    char *slash = strchr(input, '/');
+    addresse.masque = (unsigned char)atoi(slash + 1);
+
+    char *tok = strtok(input, "./");
+    int i = 0;
+    while (tok != NULL && i < 4) {
+        addresse.octets[i] = (unsigned char)atoi(tok);
+        i++;
+        tok = strtok(NULL, "./");
     }
 
     return addresse;
